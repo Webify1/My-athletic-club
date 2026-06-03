@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,8 +14,11 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Montserrat', sans-serif; background-color: #f4f4f9; color: #333; line-height: 1.6; }
         
-        header { background-color: #111; color: #fff; padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        header { background-color: #111; color: #fff; padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.5);}
+        header .logo-container { display: flex; align-items: center; gap: 15px; }
+        header .logo-container img { height: 45px; width: 45px; border-radius: 50%; object-fit: cover; border: 2px solid #d90429; }
         header h1 { text-transform: uppercase; letter-spacing: 2px; font-size: 1.5rem; font-weight: 900;}
+        
         .nav-links { display: flex; align-items: center; gap: 20px; }
         .nav-links a { color: #fff; text-decoration: none; text-transform: uppercase; font-size: 0.9rem; font-weight: 700; letter-spacing: 1px; transition: color 0.3s; }
         .nav-links a:hover { color: #d90429; }
@@ -76,10 +78,11 @@
         #contact h3 { font-size: 2.5rem; font-weight: 900; text-transform: uppercase; margin-bottom: 1rem; color: #111;}
         #contact p { color: #666; margin-bottom: 2rem; font-size: 1.1rem;}
         .social-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;}
-        .social-btn { display: flex; align-items: center; gap: 10px; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 900; font-size: 1.1rem; color: white; transition: transform 0.3s;}
-        .social-btn:hover { transform: translateY(-3px); }
+        .social-btn { display: flex; align-items: center; gap: 10px; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 900; font-size: 1.1rem; color: white; transition: transform 0.3s, box-shadow 0.3s;}
+        .social-btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
         .whatsapp-btn { background-color: #25D366; }
         .instagram-btn { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .gmail-btn { background-color: #ea4335; }
 
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 999; justify-content: center; align-items: center; }
         .modal { background: #fff; width: 95%; max-width: 600px; border-radius: 8px; padding: 2rem; position: relative; max-height: 90vh; overflow-y: auto; }
@@ -130,7 +133,10 @@
 <body>
 
     <header>
-        <h1>Athletic Club</h1>
+        <div class="logo-container">
+            <img src="logo.png" alt="My Athletic Club Logo">
+            <h1>Athletic Club</h1>
+        </div>
         <div class="nav-links">
             <a href="#shop">Shop</a>
             <a href="#contact">Contact</a>
@@ -144,7 +150,7 @@
     </section>
 
     <section id="shop">
-        <h3 class="section-title">Latest Drops</h3>
+        <h3 class="section-title">Drops</h3>
         <div class="products">
 
             <div class="card featured-card">
@@ -282,7 +288,8 @@
                     <button class="add-to-cart-btn" onclick="addShirtToCart()">Add to Cart</button>
                 </div>
             </div>
-<div class="card">
+
+            <div class="card">
                 <img src="shorts-black.png" alt="2-in-1 Training Shorts" id="dynamic-shorts-img" class="dynamic-img">
                 <div class="card-content">
                     <div class="product-title">2-in-1 Training Shorts</div>
@@ -466,6 +473,16 @@
         </div>
     </section>
 
+    <section id="contact">
+        <h3>Contact Us</h3>
+        <p>Have a question or need a custom design quote? Reach out to us below.</p>
+        <div class="social-links">
+            <a href="https://wa.me/96181885580?text=Hello%20Athletic%20Club!%20I%20have%20a%20question." target="_blank" class="social-btn whatsapp-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://instagram.com/myathletic.club" target="_blank" class="social-btn instagram-btn"><i class="fab fa-instagram"></i> @myathletic.club</a>
+            <a href="mailto:myathletic.club@gmail.com" class="social-btn gmail-btn"><i class="fas fa-envelope"></i> myathletic.club@gmail.com</a>
+        </div>
+    </section>
+
     <div class="modal-overlay" id="cart-modal">
         <div class="modal">
             <span class="close-btn" onclick="closeCart()">&times;</span>
@@ -547,10 +564,11 @@
     <footer>
         <p>&copy; 2026 Athletic Club. All rights reserved.</p>
     </footer>
-<script>
+
+    <script>
         let cart = [];
         let total = 0;
-        const myWhatsAppNumber = "96181885580";
+        const myWhatsAppNumber = "96170168616";
 
         // --- CUSTOM SHIRT DESIGN STUDIO LOGIC ---
         let currentCustomShirtColor = 'Black'; 
